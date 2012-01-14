@@ -1,0 +1,20 @@
+{
+  "name": "rex",
+  "version": "v1.0.0",
+  "scripts": {
+    "preinstall": "node-waf configure && node-waf build",
+    "preuninstall": "rm -rf build/*"
+  },
+  "main": "bin/main.js",
+  "description": "Remote process execution and virtualization.",
+  "homepage": "https://github.com/olalonde/node-notify",
+  "author": {
+      "name": "Anthony Pesch",
+      "email": "inolen@gmail.com",
+      "url": "http://www.inolen.com/"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/inolen/rex.git"
+    }
+}

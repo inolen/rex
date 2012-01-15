@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var optimist = require('optimist'),
-  rex = require('../lib/rex');
+var rex = require('../lib/rex');
 
 /*
  * Rex is invoked two ways:
@@ -12,22 +11,23 @@ var optimist = require('optimist'),
  */
 var main = function () {
   'use strict';
-  var opts = optimist(process.argv)
+  var opts = require('optimist')(process.argv)
     .usage('Execute a command on a remote host, using the local filesystem.\nUsage: $0')
     // Don't describe this as the end-user should never specify it.
     //.describe('file_host', 'Remote host to mount file system from')
-    .describe('proc_host', 'Remote host to offload process execution to')
-    .describe('port', 'Port to open reverse tunnel on').default('port', 7265)
-    .describe('command', 'Command to execute').argv;
+    .describe('remote_host', 'Remote host to run process on')
+    .describe('tunnel_port', 'Port to use for reverse tunnel').default('tunnel_port', 7265)
+    .describe('command', 'Command to execute'),
+    argv = opts.argv;
 
-  if (opts.proc_host !== undefined && opts.file_host !== undefined) {
+  if (argv.remote_host !== undefined && argv.file_host !== undefined) {
     console.error('Process host and file host options are mutually exclusive.');
-  } else if (opts.proc_host !== undefined && opts.command !== undefined) {
-    rex.relay(opts.command, opts.proc_host, opts.port, function (err) {
+  } else if (argv.remote_host !== undefined && argv.command !== undefined) {
+    rex.relay(argv.command, argv.remote_host, argv.tunnel_port, function (err) {
       process.exit(err !== null ? 0 : 1);
     });
-  } else if (opts.file_host !== undefined && opts.command !== undefined) {
-    rex.exec(opts.command, {}, opts.file_host, function (err, stdout, stderr) {
+  } else if (argv.file_host !== undefined && argv.command !== undefined) {
+    rex.exec(argv.command, {}, argv.file_host, function (err, stdout, stderr) {
       if (stdout) {
         console.log(stdout);
       }

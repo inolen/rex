@@ -18,7 +18,7 @@ suite('main', function () {
     var stub_relay = this.stub(rex, 'relay').yields(Error),
       stub_exit = this.stub(process, 'exit', function () {});
 
-    process.argv = ['', '', '--proc_host=user@server', '--command=ls -l /'];
+    process.argv = ['', '', '--remote_host=user@server', '--command=ls -l /'];
 
     main();
 
@@ -30,7 +30,7 @@ suite('main', function () {
     var stub_relay = this.stub(rex, 'relay').yields(null),
       stub_exit = this.stub(process, 'exit');
 
-    process.argv = ['', '', '--proc_host=user@server', '--command=ls -l /'];
+    process.argv = ['', '', '--remote_host=user@server', '--command=ls -l /'];
 
     main();
 

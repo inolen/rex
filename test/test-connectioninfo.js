@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  ConnectionInfo = require('../lib/ConnectionInfo');
+  ConnectionInfo = require('../lib/connectioninfo');
 
 suite('ConnectionInfo', function () {
   test('Validate good connection string', function () {

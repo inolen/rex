@@ -1,7 +1,7 @@
 var assert = require('assert'),
   child_process = require('child_process'),
   sinon = require('sinon'),
-  SSHFSClient = require('../lib/SSHFSClient');
+  SSHFSClient = require('../lib/sshfsclient');
 
 suite('SSHFSClient', function () {
   var connection_string;

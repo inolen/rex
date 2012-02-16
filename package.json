@@ -1,20 +1,21 @@
 {
   "name": "rex",
-  "version": "v1.0.0",
+  "version": "v0.1.0",
+  "description": "Remote process execution and virtualization.",
+  "author": "Anthony Pesch <inolen@gmail.com> (http://www.inolen.com)",
+  "main": "bin/main.js",
   "scripts": {
     "preinstall": "node-waf configure && node-waf build",
     "preuninstall": "rm -rf build/*"
   },
-  "main": "bin/main.js",
-  "description": "Remote process execution and virtualization.",
-  "homepage": "https://github.com/olalonde/node-notify",
-  "author": {
-      "name": "Anthony Pesch",
-      "email": "inolen@gmail.com",
-      "url": "http://www.inolen.com/"
-  },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/inolen/rex.git"
-    }
+    "type": "git",
+    "url": "https://github.com/inolen/rex.git"
+  },
+  "dependencies": {
+    "async": "0.1.15",
+    "optimist": "0.3.1",
+    "sinon": "1.2.0"
+    "temp": "0.3.0"
+  }
 }

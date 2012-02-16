@@ -1,5 +1,5 @@
 {
-  "name": "rex",
+  "name": "rexec",
   "version": "v0.1.0",
   "description": "Remote process execution and virtualization.",
   "author": "Anthony Pesch <inolen@gmail.com> (http://www.inolen.com)",
@@ -15,7 +15,7 @@
   "dependencies": {
     "async": "0.1.15",
     "optimist": "0.3.1",
-    "sinon": "1.2.0"
+    "sinon": "1.2.0",
     "temp": "0.3.0"
   }
 }

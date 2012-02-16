@@ -4,7 +4,7 @@ Rex is a tool for Linux machines to remotely execute processes in a virtual envi
 
 ## Installation
 
-    $ npm install -g rex
+    $ npm install -g rexec
 
 ## Usage
 
